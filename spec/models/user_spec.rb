@@ -13,5 +13,10 @@ describe User do
     it 'has an email' do
       expect(@user.email).to eq ("test@test.com")
     end
+
+    it 'has a stack' do
+      stack = @user.stacks.create(name: "Test Stack", description: "Stack for testing")
+      expect(@user.stacks.last).to eq(stack)
+    end
   end
 end
