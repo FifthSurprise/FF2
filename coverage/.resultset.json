@@ -1,0 +1,39 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/kevinc/Desktop/Files/Coding/FF2/app/models/user.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/kevinc/Desktop/Files/Coding/FF2/app/models/stack.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/kevinc/Desktop/Files/Coding/FF2/app/models/user_stack.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/kevinc/Desktop/Files/Coding/FF2/app/models/card.rb": [
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1397769549
+  }
+}
