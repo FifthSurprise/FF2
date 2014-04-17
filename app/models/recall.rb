@@ -5,5 +5,5 @@ class Recall < ActiveRecord::Base
   include SM2
   after_create  :reset_spaced_repetition_data
 
-
+  
 end
