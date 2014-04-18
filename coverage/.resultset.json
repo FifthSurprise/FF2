@@ -11,21 +11,25 @@
         null,
         1,
         null,
-        1,
-        null,
-        null,
         null
       ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/controllers/stack_controller.rb": [
         1,
         null,
         1,
-        0,
+        1,
         null,
         null,
         null,
         1,
         0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
         null,
         null
       ],
@@ -148,6 +152,6 @@
         null
       ]
     },
-    "timestamp": 1397844452
+    "timestamp": 1397847338
   }
 }

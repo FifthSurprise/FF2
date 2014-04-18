@@ -6,6 +6,13 @@ class StackController < ApplicationController
 
   #create a stack
   def create
-    @stack = Stack.new(book_params)
+    @stack = Stack.new(stack_params)
+  end
+
+  #implement some params stuff
+  private
+
+  def stack_params
+
   end
 end
