@@ -43,11 +43,65 @@ describe Recall do
       expect(@recall.repetition_interval).to eq(0)
     end
 
-    it 'knows it has the right implemented methods for SM2' do
-      expect{SM2.extended(@recall)}.to_not raise_error
-      # expect{@recall.check_spaced_repetition_methods}.to_not raise_error
+    it 'should schedule next repetition for tomorrow if repetition_interval = 0 and quality_of_last_recall = 4' do
+      @recall.process_recall_result(4)
+
+      @recall.number_repetitions.should == 1
+      @recall.repetition_interval.should == 1
+      @recall.last_studied.should == Date.today
+      @recall.next_repetition.should == (Date.today + 1)
+      @recall.easiness_factor.should be_close(2.5, 0.01)
     end
+
+    it 'should handle multi-repetitions' do
+      @recall.process_recall_result(4)
+      @recall.process_recall_result(4)
+      @recall.process_recall_result(5)
+      @recall.repetition_interval.should eq(15)
+    end
+
+    it 'should schedule next repetition for 6 days if repetition_interval = 1 and quality_of_last_recall = 4' do
+      @recall.process_recall_result(4)
+      @recall.process_recall_result(4)
+
+      @recall.number_repetitions.should == 2
+      @recall.repetition_interval.should == 6
+      @recall.last_studied.should == Date.today
+      @recall.next_repetition.should == (Date.today + 6)
+      @recall.easiness_factor.should be_close(2.5, 0.01)
+    end
+
+    it 'should report as scheduled to recall (for today)' do
+      @recall.next_repetition = Date.today
+      @recall.scheduled_to_recall?.should == true
+
+      @recall.next_repetition = Date.today - 1
+      @recall.scheduled_to_recall?.should == true
+    end
+
+    it 'should not be scheduled to recall' do
+      @recall.reset_spaced_repetition_data
+      @recall.next_repetition = nil
+      @recall.scheduled_to_recall?.should == true
+
+      @recall.next_repetition = Date.today + 1
+      @recall.scheduled_to_recall?.should == false
+
+      @recall.next_repetition = Date.today + 99
+      @recall.scheduled_to_recall?.should == false
+    end
+
+    it 'should require repeating items that scored 3' do
+      @recall.process_recall_result(3)
+      @recall.next_repetition.should == Date.today
+
+      @recall.process_recall_result(3)
+      @recall.next_repetition.should == Date.today
+
+      @recall.process_recall_result(4)
+      @recall.next_repetition.should == Date.today + 1
+    end
+
   end
-  
-  # pending "add some examples to (or delete) #{__FILE__}"
 end
+# pending "add some examples to (or delete) #{__FILEend

@@ -3,9 +3,9 @@ extend ActiveSupport::Concern
 
 module SM2
 
-  def SM2.extended(obj)
-    obj.check_spaced_repetition_methods
-  end
+  # def SM2.extended(obj)
+  #   obj.check_spaced_repetition_methods
+  # end
 
   def reset_spaced_repetition_data
     self.easiness_factor = 2.5
@@ -53,18 +53,18 @@ module SM2
 
   #doesn't do anything since DBC is not available.
   #Errors out if value is not available?
-  def check_spaced_repetition_methods
-    begin
-      send(:easiness_factor)
-      send(:number_repetitions)
-      send(:quality_of_last_recall)
-      send(:next_repetition)
-      send(:repetition_interval)
-      send(:last_studied)
-    rescue NoMethodError => e
-      raise e
-    end
-  end
+  # def check_spaced_repetition_methods
+  #   begin
+  #     send(:easiness_factor)
+  #     send(:number_repetitions)
+  #     send(:quality_of_last_recall)
+  #     send(:next_repetition)
+  #     send(:repetition_interval)
+  #     send(:last_studied)
+  #   rescue NoMethodError => e
+  #     raise e
+  #   end
+  # end
 
   private
 
