@@ -2,7 +2,9 @@
 
 ## Description
 
-Updated version of Forget Forgetting application
+Updated version of Forget Forgetting application.
+
+[![Code Climate](https://codeclimate.com/github/FifthSurprise/FF2.png)](https://codeclimate.com/github/FifthSurprise/FF2)
 
 ## Screenshots
 
@@ -37,4 +39,4 @@ Link to your blog, twitter, etc!
 
 ## License
 
-My Spiffy App is MIT Licensed. See LICENSE for details.
+FF2 is MIT Licensed.
