@@ -1,0 +1,17 @@
+<h1><%= @stack.name %></h1>
+
+<% if !current_user.nil? %>
+  <%= link_to 'Start Studying This Stack', add_user_stack_path(current_user, @stack), method:"post", :class =>"button" %>
+  <% end %>
+
+<h2>Cards in the stack</h2>
+
+<ol>
+  <% @stack.cards.each do |card| %>
+  <li><%= link_to card.question.split("\n").first, card %></li>
+  <% end %>
+</ol>
+
+<%= link_to 'Add New Card', "/stacks/#{@stack.id}/cards/new", method:"get", :class =>"button" %>
+<%= link_to 'Edit', edit_stack_path(@stack), :class =>"button" %>
+<%= link_to 'Back', stacks_path, :class =>"button" %>

@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/kevinc/Desktop/Files/Coding/FF2/app/controllers/card_controller.rb": [
+      "/Users/kevinc/Desktop/Files/Coding/FF2/app/controllers/cards_controller.rb": [
         1,
         null
       ],
@@ -13,21 +13,41 @@
         null,
         null
       ],
-      "/Users/kevinc/Desktop/Files/Coding/FF2/app/controllers/stack_controller.rb": [
+      "/Users/kevinc/Desktop/Files/Coding/FF2/app/controllers/stacks_controller.rb": [
         1,
         null,
         1,
         1,
         null,
         null,
-        null,
         1,
-        0,
-        null,
-        null,
-        null,
         1,
         null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        null,
+        2,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null
+      ],
+      "/Users/kevinc/Desktop/Files/Coding/FF2/app/controllers/users_controller.rb": [
+        1,
         1,
         null,
         null,
@@ -143,6 +163,7 @@
         1,
         1,
         null,
+        1,
         null
       ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/models/user_stack.rb": [
@@ -152,6 +173,6 @@
         null
       ]
     },
-    "timestamp": 1397847338
+    "timestamp": 1398011780
   }
 }
