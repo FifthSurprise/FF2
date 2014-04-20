@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "stack#new"
 
+  # Stack manipulation
   get 'stacks/:id' => 'stacks#show', :as => :stack
   get 'stacks/new' => 'stacks#new'
   post 'stacks/create' => 'stacks#create'
+  get '/stacks/:id/edit' => 'stacks#edit', :as => :stack_edit
+  post 'stacks/:id/update' => 'stacks#update'
 
+  #card manipulation
   get 'cards/:id' => 'cards#show', :as => :card
   get 'stacks/:stack_id/cards/new' => 'cards#new'
   post 'stacks/:stack_id/cards/create' => 'cards#create'

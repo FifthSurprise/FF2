@@ -23,11 +23,12 @@ describe CardsController do
     expect(response).to render_template("new")
   end
 
-  it 'handles creating a new card in a stack' do
+  it 'handles creating a new card in a stack, routing back to the stack when done' do
     post :create, stack_id:@stack.id, card:
       {question: "This is a question.", answer: "This is an answer"}
-      # binding.pry
     expect(Card.last.question).to eq("This is a question.")
+    expect(Card.last.answer).to eq("This is an answer")
+    response.should redirect_to "/stacks/#{@stack.id}"
   end
 
 end

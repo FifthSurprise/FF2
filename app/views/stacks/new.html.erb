@@ -1,2 +1,16 @@
+<h1>New Stack</h1>
 
-<h1> test</h1>
+<%= render 'form' %>
+<br>
+<h2>Submit via Gist</h2>
+<%= form_tag(gist_path, method: "get") do %>
+  <div class ="field">
+    <%= label_tag :gist, "Github gist URL" %>
+    <%= text_field_tag "url",'https://gist.github.com/username/gistid' %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Submit gist"%>
+    <% end %>
+  </div>
+  <br>
+<%= link_to 'Back', stacks_path, :class =>"button"%>

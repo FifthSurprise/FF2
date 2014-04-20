@@ -5,7 +5,14 @@ describe StacksController do
     @user = create(:user)
     sign_in :user, @user
   end
-  it 'handles renders a new stack' do
+
+  it 'renders a show stack' do
+    newstack = create(:stack)
+    get :show, id: newstack
+    response.should render_template :show
+  end
+
+  it 'renders a new stack page' do
     sign_in :user, @user
     get :new
     expect(response).to render_template("new")
@@ -14,7 +21,7 @@ describe StacksController do
   it 'handles creating a new stack' do
     post :create, stack:
       { name: 'StackName', description: 'SpecTest'}
-      createstack = Stack.last
+    createstack = Stack.last
     expect(controller.params[:stack][:name]).to eq('StackName')
     expect(createstack.name).to eq('StackName')
     expect(createstack.owner).to eq(@user)
@@ -23,12 +30,14 @@ describe StacksController do
   it 'handles improperly creating a new stack' do
     post :create, stack:
       {description: 'SpecTest'}
-    response.should render_template :new 
+    response.should render_template :new
   end
 
-  it 'renders a show stack' do
+  it 'renders an edit stack page' do
     newstack = create(:stack)
-    get :show, id: newstack
-    response.should render_template :show
+    sign_in :user, @user
+    get :edit, id: newstack
+    expect(response).to render_template("edit")
   end
+
 end

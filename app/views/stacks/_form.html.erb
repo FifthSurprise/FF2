@@ -1,21 +1,19 @@
 <%= form_for(@stack) do |f| %>
 <% if @stack.errors.any? %>
 <div id="error_explanation">
-
+  <h2><%= pluralize(@stack.errors.count, "error") %> prohibited this stack from being saved:</h2>
 </div>
 <% end %>
-  
-  <div class ="field">
-    <%= f.label :question %>
-    <%= f.text_area :question %>
-  </div>
-  <div class ="field">
-    <%= f.label :answer %>
-    <%= f.text_area :answer %>
-  </div>
 
-  <%= f.hidden_field(:stack_id, :value => @stack.id ) %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class ="field">
+  <%= f.label :name %>
+  <%= f.text_area :name %>
+</div>
+<div class ="field">
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

@@ -23,6 +23,11 @@ class StacksController < ApplicationController
     end
   end
 
+  def edit
+    @stack = Stack.find(params[:id])
+  end
+
+
   private
   #implement strong pramas stuff
   def stack_params
