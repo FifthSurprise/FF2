@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   get 'stacks/new' => 'stacks#new'
   post 'stacks/create' => 'stacks#create'
 
+  get 'cards/:id' => 'cards#show', :as => :card
+  get 'stacks/:stack_id/cards/new' => 'cards#new'
+  post 'stacks/:stack_id/cards/create' => 'cards#create'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

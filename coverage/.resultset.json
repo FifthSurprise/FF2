@@ -3,6 +3,28 @@
     "coverage": {
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/controllers/cards_controller.rb": [
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/controllers/application_controller.rb": [
@@ -173,6 +195,6 @@
         null
       ]
     },
-    "timestamp": 1398011780
+    "timestamp": 1398013354
   }
 }

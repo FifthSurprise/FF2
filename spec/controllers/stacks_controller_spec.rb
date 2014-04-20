@@ -11,10 +11,11 @@ describe StacksController do
     expect(response).to render_template("new")
   end
 
-  it 'handles creates a new stack' do
+  it 'handles creating a new stack' do
     post :create, stack:
       { name: 'StackName', description: 'SpecTest'}
       createstack = Stack.last
+    expect(controller.params[:stack][:name]).to eq('StackName')
     expect(createstack.name).to eq('StackName')
     expect(createstack.owner).to eq(@user)
   end
