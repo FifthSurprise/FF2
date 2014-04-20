@@ -2,7 +2,7 @@
 
 ## Description
 
-Add a short description of your app.
+Updated version of Forget Forgetting application
 
 ## Screenshots
 
