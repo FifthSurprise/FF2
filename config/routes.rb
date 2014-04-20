@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "stack#new"
 
+  #User manipulation
+  get 'users/:id' => 'users#show', :as => :user
+
   # Stack manipulation
   get 'stacks/:id' => 'stacks#show', :as => :stack
   get 'stacks/new' => 'stacks#new'
@@ -14,6 +17,9 @@ Rails.application.routes.draw do
   get 'cards/:id' => 'cards#show', :as => :card
   get 'stacks/:stack_id/cards/new' => 'cards#new'
   post 'stacks/:stack_id/cards/create' => 'cards#create'
+
+  #Studying a stack
+  post 'stacks/:id/add' => 'user_stacks#study_stack', :as => :study_stack
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -8,7 +8,6 @@ class StacksController < ApplicationController
     @stack = Stack.new
   end
 
-  #create a stack
   def create
     @stack = Stack.new(stack_params)
     @stack.owner = current_user
@@ -27,9 +26,8 @@ class StacksController < ApplicationController
     @stack = Stack.find(params[:id])
   end
 
-
   private
-  #implement strong pramas stuff
+  #implement strong params stuff
   def stack_params
     params.require(:stack).permit(:name, :description, :owner_id)
   end

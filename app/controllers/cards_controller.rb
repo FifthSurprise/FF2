@@ -9,7 +9,6 @@ class CardsController < ApplicationController
     @card = Card.new
   end
 
-  #create a stack
   def create
     @stack = Stack.find(params[:stack_id])
     @card = @stack.cards.create(card_params)
