@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'SM2'
 
 describe Recall do
 
