@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   #card manipulation
   get '/cards/:id' => 'cards#show', :as => :card
-  get '/stacks/:stack_id/cards/new' => 'cards#new'
+  get '/stacks/:stack_id/cards/new' => 'cards#new', :as => :cards
   post '/stacks/:stack_id/cards/create' => 'cards#create'
 
   #Studying a stack

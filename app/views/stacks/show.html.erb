@@ -13,7 +13,7 @@
   <% end %>
 </ol>
 
-<%= link_to 'Add New Card', "/stacks/#{@stack.id}/cards/new", method:"get", :class =>"button" %>
+<%= link_to 'Add New Card', new_card_path(@stack.id) , method:"get", :class =>"button" %>
 <!-- 
 <%= link_to 'Edit', edit_stack_path(@stack), :class =>"button" %>
 <%= link_to 'Back', stacks_path, :class =>"button" %> -->
