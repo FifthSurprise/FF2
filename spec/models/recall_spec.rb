@@ -112,7 +112,5 @@ describe Recall do
       @recall.process_recall_result(4)
       @recall.next_repetition.should == Date.today + 1
     end
-
   end
 end
-# pending "add some examples to (or delete) #{__FILEend

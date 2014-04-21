@@ -41,7 +41,6 @@ describe Stack do
       expect(@user.stacks.count).to eq(stackcount)
       expect(@stack.cards.count).to eq(0)
       expect(@user.recalls.count).to eq(userrecallcount - stackcardcount)
-
     end
   end
 end

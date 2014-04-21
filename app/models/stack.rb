@@ -8,9 +8,6 @@ class Stack < ActiveRecord::Base
   validates :name, :presence => true
 
   def emptycards
-    #destroy all of the underlying cards
-    #destroy any recalls that have those cards
-    #don't need to destroy join models as it is automatic
     self.cards.each do |card|
       Recall.where("card_id = #{card.id}").each do |recall|
         recall.destroy
