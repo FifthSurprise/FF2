@@ -45,7 +45,6 @@ group :test, :development do
   gem "factory_girl_rails"
   gem "simplecov"
   gem "database_cleaner"
-  gem "sqlite3"
   gem "pry"
 end
 
@@ -57,3 +56,7 @@ end
 
 gem "bootstrap-sass", "~> 3.1.1"
 gem "devise"
+
+#markdown related gems
+gem 'redcarpet'
+gem 'albino'
