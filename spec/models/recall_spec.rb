@@ -11,7 +11,18 @@ describe Recall do
 
       @stack.owner = @user
       @stack.cards << create(:card)
+      @card = @stack.cards.last
       @recall = create(:recall)
+      @recall.user = @user
+      @recall.card = @card
+    end
+
+    it 'has an associated card' do
+      expect(@recall.card).to eq(@card)
+    end
+
+    it 'has an associated user' do
+      expect(@recall.user).to eq (@user)
     end
 
     it 'has recall data' do

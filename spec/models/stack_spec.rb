@@ -22,4 +22,18 @@ describe Stack do
       @stack.owner.should eq(@user)
     end
   end
+
+  describe 'relation actions' do
+    before(:each) do
+      @user = create(:user)
+      @stack = create(:stack)
+      @stack.cards << create(:card)
+      @user.stacks << @stack
+      @stack.owner = @user
+      @recall = create(:recall)
+    end
+    it 'can destroy all associated cards' do
+      pending
+    end
+  end
 end

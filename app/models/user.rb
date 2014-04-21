@@ -10,4 +10,15 @@ class User < ActiveRecord::Base
   has_many :recalls
 
   has_many :ownedstacks, :class_name => "Stack", foreign_key: "owner_id"
+
+  def study_stack(stack)
+    stack.cards.each do|card|
+      self.study_card(card)
+    end
+  end
+
+  def study_card(card)
+    recall = self.recalls.build(:card => card)
+    recall.save
+  end
 end

@@ -37,17 +37,17 @@ describe User do
       end
 
       it 'user can have a recall' do
-        recallstack = @user.stacks.create(name: "Recall Stack", description: "Stack that is being studied")
-        card = (create(:card))
-        @user.cards << card
-        recallstack.cards << card
-        expect(recallstack.cards.count).to eq(1)
+        recallstack = create(:stack) 
+        studycard = (create(:card))
+        recallstack.cards << studycard
+        @user.study_stack(recallstack)
 
-        expect(recallstack.cards.first).to eq (card)
-        recall = (Recall.where("user_id = #{@user.id}").where("card_id = #{card.id}")).first
+        expect(recallstack.cards.count).to eq(1)        
+        expect(recallstack.cards.first).to eq (studycard)
+        # binding.pry
+        recall = (Recall.where("user_id = #{@user.id}").where("card_id = #{studycard.id}")).first
         expect(recall.easiness_factor).to eq (2.5)
       end
-
     end
   end
 end

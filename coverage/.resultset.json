@@ -14,6 +14,17 @@
         1,
         null,
         1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/helpers/application_helper.rb": [
@@ -161,13 +172,13 @@
         null,
         null,
         1,
-        12,
-        12,
-        12,
-        12,
-        12,
-        12,
-        12,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
         null,
         null,
         null,
@@ -252,6 +263,18 @@
         1,
         null,
         1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/models/user_stack.rb": [
@@ -261,6 +284,6 @@
         null
       ]
     },
-    "timestamp": 1398092367
+    "timestamp": 1398101991
   }
 }
