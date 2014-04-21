@@ -1,0 +1,12 @@
+<h1>Stacks:</h1>
+<%= link_to 'New Stack', new_stack_path, :class =>"button" %>
+</br>
+</br>
+<ol>
+  <% @stacks.each do |stack| %>
+  <li><%= link_to stack.name, stack %></li>
+  <% end %>
+</ol>
+<% if !current_user.nil? %>
+<%= link_to 'Back', current_user, :class =>"button" %>
+<% end %>
