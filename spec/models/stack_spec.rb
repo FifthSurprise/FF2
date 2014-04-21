@@ -27,13 +27,21 @@ describe Stack do
     before(:each) do
       @user = create(:user)
       @stack = create(:stack)
-      @stack.cards << create(:card)
-      @user.stacks << @stack
       @stack.owner = @user
-      @recall = create(:recall)
+      @stack.cards << create(:card)
+      @stack.cards << create(:card)
+      @user.study_stack(@stack)
     end
+
     it 'can destroy all associated cards' do
-      pending
+      stackcount = @user.stacks.count
+      stackcardcount = @stack.cards.count
+      userrecallcount = @user.recalls.count
+      @stack.emptycards
+      expect(@user.stacks.count).to eq(stackcount)
+      expect(@stack.cards.count).to eq(0)
+      expect(@user.recalls.count).to eq(userrecallcount - stackcardcount)
+
     end
   end
 end
