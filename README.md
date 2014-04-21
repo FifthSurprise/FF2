@@ -4,7 +4,7 @@
 
 Updated version of Forget Forgetting application.
 
-[![Code Climate](https://codeclimate.com/github/FifthSurprise/FF2.png)](https://codeclimate.com/github/FifthSurprise/FF2)
+[![Build Status](https://travis-ci.org/FifthSurprise/FF2.svg?branch=master)](https://travis-ci.org/FifthSurprise/FF2) - [![Coverage Status](https://coveralls.io/repos/FifthSurprise/FF2/badge.png)](https://coveralls.io/r/FifthSurprise/FF2) - [![Code Climate](https://codeclimate.com/github/FifthSurprise/FF2.png)](https://codeclimate.com/github/FifthSurprise/FF2)
 
 ## Screenshots
 
