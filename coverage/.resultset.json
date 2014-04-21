@@ -599,7 +599,8 @@
         1,
         1,
         1,
-        1,
+        0,
+        0,
         null,
         null,
         1,
@@ -1016,8 +1017,6 @@
         1,
         null,
         null,
-        null,
-        null,
         null
       ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/models/concerns/SM2.rb": [
@@ -1159,7 +1158,6 @@
         1,
         null,
         null,
-        null,
         null
       ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/models/stack.rb": [
@@ -1173,9 +1171,6 @@
         1,
         null,
         1,
-        null,
-        null,
-        null,
         1,
         2,
         2,
@@ -1254,6 +1249,6 @@
         null
       ]
     },
-    "timestamp": 1398103000
+    "timestamp": 1398104656
   }
 }

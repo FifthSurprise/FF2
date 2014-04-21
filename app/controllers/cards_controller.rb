@@ -10,7 +10,6 @@ class CardsController < ApplicationController
   end
 
   def create
-    binding.pry
     @stack = Stack.find(card_params[:stack_id])
     @card = @stack.cards.create(card_params)
     redirect_to stack_path(@stack)
