@@ -53,5 +53,18 @@ describe CardsController do
       delete :destroy, id: card
       expect(Recall.where("card_id = #{card.id} and user_id = #{@user.id}").count).to eq(recallcount-1)
     end
+
+    it 'removes recalls associated with a card for multiple users' do
+      @user.study_stack(@stack)
+      user2 = create(:user)
+      user2.study_stack(@stack)
+
+      card = @stack.cards.last
+      recallcount = user2.recalls.count
+      expect(recallcount).to_not eq(0)
+      delete :destroy, id: card
+      expect(Recall.where("card_id = #{card.id} and user_id = #{@user.id}").count).to eq(recallcount-1)
+      expect(Recall.where("card_id = #{card.id} and user_id = #{user2.id}").count).to eq(recallcount-1)
+    end
   end
 end

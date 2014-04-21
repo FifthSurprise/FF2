@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-04-21T15:11:17-04:00">2014-04-21T15:11:17-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-04-21T15:13:30-04:00">2014-04-21T15:13:30-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.16
+         2.28
        </span>
     </span> hits/line)
   </h2>
@@ -67,7 +67,7 @@
         <td>19</td>
         <td>19</td>
         <td>0</td>
-        <td>1.3</td>
+        <td>1.6</td>
       </tr>
       
       <tr>
@@ -167,7 +167,7 @@
         <td>34</td>
         <td>34</td>
         <td>0</td>
-        <td>8.6</td>
+        <td>9.4</td>
       </tr>
       
       <tr>
@@ -197,7 +197,7 @@
         <td>15</td>
         <td>15</td>
         <td>0</td>
-        <td>2.4</td>
+        <td>3.6</td>
       </tr>
       
       <tr>
@@ -417,7 +417,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>14.2</td>
+        <td>14.8</td>
       </tr>
       
       <tr>
@@ -702,32 +702,32 @@
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="19">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="19">
+          <span class="hits">3</span>
           
           <code class="ruby">    @card = Card.find(params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="20">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="20">
+          <span class="hits">3</span>
           
           <code class="ruby">    question = @card.question</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="21">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="21">
+          <span class="hits">3</span>
           
           <code class="ruby">    @stack = @card.stack</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="22">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="22">
+          <span class="hits">3</span>
           
           <code class="ruby">    @card.destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="23">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="23">
+          <span class="hits">3</span>
           
           <code class="ruby">    redirect_to stack_path(@stack), notice: &quot;Deleted #{question} from #{@stack.name}.&quot;</code>
         </li>
@@ -1512,44 +1512,44 @@
           <code class="ruby">  def reset_spaced_repetition_data</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="11">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="22" data-linenumber="11">
+          <span class="hits">22</span>
           
           <code class="ruby">    self.easiness_factor = 2.5</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="12">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="22" data-linenumber="12">
+          <span class="hits">22</span>
           
           <code class="ruby">    self.number_repetitions = 0</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="13">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="22" data-linenumber="13">
+          <span class="hits">22</span>
           
           <code class="ruby">    self.quality_of_last_recall = nil</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="14">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="22" data-linenumber="14">
+          <span class="hits">22</span>
           
           <code class="ruby">    self.repetition_interval = nil</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="15">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="22" data-linenumber="15">
+          <span class="hits">22</span>
           
           <code class="ruby">    self.next_repetition = nil</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="16">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="22" data-linenumber="16">
+          <span class="hits">22</span>
           
           <code class="ruby">    self.last_studied = nil</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="17">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="22" data-linenumber="17">
+          <span class="hits">22</span>
           
           <code class="ruby">    self.save</code>
         </li>
@@ -2232,26 +2232,26 @@
           <code class="ruby">  def study_stack(stack)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="15">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="15">
+          <span class="hits">6</span>
           
           <code class="ruby">    unless (self.stacks.include?(stack))</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="16">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="16">
+          <span class="hits">6</span>
           
           <code class="ruby">      self.stacks&lt;&lt;stack</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="17">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="17">
+          <span class="hits">6</span>
           
           <code class="ruby">      stack.cards.each do|card|</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="18">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="9" data-linenumber="18">
+          <span class="hits">9</span>
           
           <code class="ruby">        self.study_card(card)</code>
         </li>
@@ -2286,14 +2286,14 @@
           <code class="ruby">  def study_card(card)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="24">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="9" data-linenumber="24">
+          <span class="hits">9</span>
           
           <code class="ruby">    unless(self.cards.include?(card))</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="25">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="9" data-linenumber="25">
+          <span class="hits">9</span>
           
           <code class="ruby">      self.cards &lt;&lt; card</code>
         </li>
@@ -6342,8 +6342,8 @@
           <code class="ruby">    sequence :email do |n|</code>
         </li>
       
-        <li class="covered" data-hits="40" data-linenumber="7">
-          <span class="hits">40</span>
+        <li class="covered" data-hits="42" data-linenumber="7">
+          <span class="hits">42</span>
           
           <code class="ruby">      &quot;test#{n}@test.com&quot;</code>
         </li>
@@ -6360,8 +6360,8 @@
           <code class="ruby">    password &quot;123123abcdef&quot;</code>
         </li>
       
-        <li class="covered" data-hits="41" data-linenumber="10">
-          <span class="hits">41</span>
+        <li class="covered" data-hits="43" data-linenumber="10">
+          <span class="hits">43</span>
           
           <code class="ruby">    password_confirmation { &quot;123123abcdef&quot; }</code>
         </li>
