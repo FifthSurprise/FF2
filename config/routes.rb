@@ -8,26 +8,14 @@ Rails.application.routes.draw do
   #User manipulation
   get 'users/:id' => 'users#show', :as => :user
 
-  # Stack manipulation
+  # Card & Stack manipulation
   resources :stacks do
     resources :cards
   end
-  resources :cards
   post '/stacks/:id/add' => 'user_stacks#study_stack', :as => :study_stack
 
-  # get '/stacks/new' => 'stacks#new'
-  # get '/stacks/:id' => 'stacks#show', :as => :stack
-  # post '/stacks/create' => 'stacks#create'
-  # get '/stacks/:id/edit' => 'stacks#edit', :as => :stack_edit
-  # post '/stacks/:id/update' => 'stacks#update'
-
-  #card manipulation
-  # get '/cards/:id' => 'cards#show', :as => :cards
-  # get '/stacks/:stack_id/cards' => 'cards', :as => :stack_cards
-  # get '/stacks/:stack_id/cards/new' => 'cards#new', :as => :new_stack_card
-  # post '/stacks/:stack_id/cards/create' => 'cards#create'
-
-  #Studying a stack
+  resources :cards
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
