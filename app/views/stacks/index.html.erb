@@ -4,7 +4,9 @@
 </br>
 <ol>
   <% @stacks.each do |stack| %>
-  <li><%= link_to stack.name, stack %></li>
+  <li><h3><%= link_to stack.name, stack %></h3>
+    <h4><%=stack.description %></h4>
+  </li>
   <% end %>
 </ol>
 <% if !current_user.nil? %>

@@ -6,6 +6,11 @@ describe StacksController do
     sign_in :user, @user
   end
 
+it 'renders the index of all stacks' do
+    get :index
+    response.should render_template :index
+  end
+
   it 'renders a show stack' do
     newstack = create(:stack)
     get :show, id: newstack
