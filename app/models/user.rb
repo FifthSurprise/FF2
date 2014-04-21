@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable
   has_many :stacks, through: :user_stacks
   has_many :user_stacks
 
@@ -12,13 +12,17 @@ class User < ActiveRecord::Base
   has_many :ownedstacks, :class_name => "Stack", foreign_key: "owner_id"
 
   def study_stack(stack)
-    stack.cards.each do|card|
-      self.study_card(card)
+    unless (self.stacks.include?(stack))
+      self.stacks<<stack
+      stack.cards.each do|card|
+        self.study_card(card)
+      end
     end
   end
 
   def study_card(card)
-    recall = self.recalls.build(:card => card)
-    recall.save
+    unless(self.cards.include?(card))
+      self.cards << card
+    end
   end
 end

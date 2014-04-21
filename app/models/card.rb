@@ -3,5 +3,4 @@ class Card < ActiveRecord::Base
   has_many :recalls
   
   has_many :users, through: :recalls
-
 end

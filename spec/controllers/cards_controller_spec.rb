@@ -35,12 +35,23 @@ describe CardsController do
   end
 
   describe 'destroying cards from a stack' do
-    it 'can destroy a card from a stack' do
+    before(:each) do
       @stack.cards<< create(:card)
+    end
+    it 'can destroy a card from a stack' do
       card = @stack.cards.last
       count = @stack.cards.count
       delete :destroy, id: card
       expect(@stack.cards.count).to eq(count-1)
+    end
+
+    it 'removes all the recalls associated with the card' do
+      @user.study_stack(@stack)
+      card = @stack.cards.last
+      recallcount = @user.recalls.count
+      expect(recallcount).to_not eq(0)
+      delete :destroy, id: card
+      expect(Recall.where("card_id = #{card.id} and user_id = #{@user.id}").count).to eq(recallcount-1)
     end
   end
 end

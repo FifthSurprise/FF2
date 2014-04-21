@@ -9,7 +9,7 @@ class UserStacksController < ApplicationController
       if current_user.stacks.include?(@stack)
         redirect_to current_user, :notice =>"Already studying this stack."
       else
-        current_user.stacks << @stack
+        current_user.study_stack(@stack)
         #what to do when adding a card?
         #add the cards
         current_user.save
