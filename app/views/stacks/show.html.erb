@@ -2,7 +2,7 @@
 
 <% if !current_user.nil? %>
 <!-- implement studying this stack -->
-  <p> Placeholder for studying a stack </p>
+  <p> <%= link_to 'Study this stack', study_stack_path(@stack), method: "post",:class => "btn btn-default" %></p>
   <% end %>
 
 <h2>Cards in the stack</h2>
@@ -13,7 +13,7 @@
   <% end %>
 </ol>
 
-<%= link_to 'Add New Card', new_stack_card_path(@stack) , method:"get", :class =>"button" %>
+<%= link_to 'Add New Card', new_stack_card_path(@stack) , method:"get", :class =>"btn btn-default" %>
 <!-- 
 <%= link_to 'Edit', edit_stack_path(@stack), :class =>"button" %>
 <%= link_to 'Back', stacks_path, :class =>"button" %> -->
