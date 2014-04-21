@@ -1,25 +1,28 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: "stack#new"
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 
   #User manipulation
   get 'users/:id' => 'users#show', :as => :user
 
   # Stack manipulation
-  get 'stacks/:id' => 'stacks#show', :as => :stack
-  get 'stacks/new' => 'stacks#new'
-  post 'stacks/create' => 'stacks#create'
-  get '/stacks/:id/edit' => 'stacks#edit', :as => :stack_edit
-  post 'stacks/:id/update' => 'stacks#update'
+  resources :stacks
+  # get '/stacks/new' => 'stacks#new'
+  # get '/stacks/:id' => 'stacks#show', :as => :stack
+  # post '/stacks/create' => 'stacks#create'
+  # get '/stacks/:id/edit' => 'stacks#edit', :as => :stack_edit
+  # post '/stacks/:id/update' => 'stacks#update'
 
   #card manipulation
-  get 'cards/:id' => 'cards#show', :as => :card
-  get 'stacks/:stack_id/cards/new' => 'cards#new'
-  post 'stacks/:stack_id/cards/create' => 'cards#create'
+  get '/cards/:id' => 'cards#show', :as => :card
+  get '/stacks/:stack_id/cards/new' => 'cards#new'
+  post '/stacks/:stack_id/cards/create' => 'cards#create'
 
   #Studying a stack
-  post 'stacks/:id/add' => 'user_stacks#study_stack', :as => :study_stack
+  post '/stacks/:id/add' => 'user_stacks#study_stack', :as => :study_stack
 
 
   # The priority is based upon order of creation: first created -> highest priority.
