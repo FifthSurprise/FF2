@@ -4,7 +4,7 @@ class Stack < ActiveRecord::Base
 
   has_many :cards
   belongs_to :owner, class_name: "User"
-  
+
   validates :name, :presence => true
 
   def emptycards
@@ -14,5 +14,11 @@ class Stack < ActiveRecord::Base
       end
       card.destroy
     end
+  end
+
+  #get all recalls that pertain to a user
+  def get_recalls(user)
+    #join the Recall table with the stack table through card_id
+    # Recall.where("user_id = #{@user.id} and ")
   end
 end
