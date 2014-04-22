@@ -26,21 +26,20 @@ describe RecallsController do
     @recall.reset
     post :reset, id: @recall
     @recall.number_repetitions.should eq(0)
-    pending
   end
 
   it 'will get a card to learn if there are any available' do
     get :learn, user: @user, stack: @stack
     response.should redirect_to (recall_path(@recall))
+
+  end
+
+  it 'will go back to user page if all cards are learned' do
     @recall.process_recall_result(4)
     @recall.process_recall_result(4)
     @recall.process_recall_result(5)
     get :learn, user: @user, stack: @stack
     response.should redirect_to (@user)
-  end
-
-  it 'will go back to user page if all cards are learned' do
-    pending
   end
 
   it 'can process a recall quality' do
