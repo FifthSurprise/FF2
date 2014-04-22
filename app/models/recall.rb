@@ -8,4 +8,8 @@ class Recall < ActiveRecord::Base
   def stack
       self.card.stack
   end
+
+  def reset
+    self.reset_spaced_repetition_data
+  end
 end

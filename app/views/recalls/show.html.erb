@@ -20,14 +20,15 @@
   <div class="cardbottom">
     <p class="col-md-12 col-md-offset-1">Rank how well you know the answer from 0 - 5 with 5 being "I totally know it!"</p>
           <div class="col-md-12 col-md-offset-1 btn-group">
-          <%= link_to '0 - Blanked Out', processQ_path(@recall,:val=>0),:method => "post",:class =>"btn btn-default"%>
-          <%= link_to '1', processQ_path(@recall,:val=>1),:method => "post",:class =>"btn btn-default"%>
-          <%= link_to '2', processQ_path(@recall,:val=>2),:method => "post",:class =>"btn btn-default"%>
-          <%= link_to '3', processQ_path(@recall,:val=>3),:method => "post",:class =>"btn btn-default"%>
-          <%= link_to '4', processQ_path(@recall,:val=>4),:method => "post",:class =>"btn btn-default"%>
-          <%= link_to '5 - Perfect Recall', processQ_path(@recall,:val=>5),:method => "post",:class =>"btn btn-default"%>
+          <%= link_to '0 - Blanked Out', processQ_path(@recall,:val=>0),:method => "post",:class =>"btn btn-default btn-lg"%>
+          <%= link_to '1', processQ_path(@recall,:val=>1),:method => "post",:class =>"btn btn-default btn-lg"%>
+          <%= link_to '2', processQ_path(@recall,:val=>2),:method => "post",:class =>"btn btn-default btn-lg"%>
+          <%= link_to '3', processQ_path(@recall,:val=>3),:method => "post",:class =>"btn btn-default btn-lg"%>
+          <%= link_to '4', processQ_path(@recall,:val=>4),:method => "post",:class =>"btn btn-default btn-lg"%>
+          <%= link_to '5 - Perfect Recall', processQ_path(@recall,:val=>5),:method => "post",:class =>"btn btn-default btn-lg"%>
         </div>
 </div>
+</br>
 <div class="footer">
 <%
 data ={

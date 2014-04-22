@@ -12,12 +12,13 @@ Rails.application.routes.draw do
   resources :stacks do
     resources :cards
   end
+  post '/stacks/gist' => 'stacks#gist', as: :gist
   post '/stacks/:id/add' => 'user_stacks#study_stack', :as => :study_stack
 
   resources :cards
   
   get '/recalls/:id' => 'recalls#show', :as => :recall
-  post '/recalls/:id/processQ' => 'recalls#processQ', :as => :processQ
+  post '/recalls/:id/processQ/:val' => 'recalls#processQ', :as => :processQ
   get '/user/:user/stacks/:stack/learn' => 'recalls#learn', :as => :learn
   post '/recalls/:id/reset' => 'recalls#reset', :as => :reset
 

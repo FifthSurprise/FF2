@@ -6,7 +6,7 @@ describe StacksController do
     sign_in :user, @user
   end
 
-it 'renders the index of all stacks' do
+  it 'renders the index of all stacks' do
     get :index
     response.should render_template :index
   end
@@ -43,6 +43,24 @@ it 'renders the index of all stacks' do
     sign_in :user, @user
     get :edit, id: newstack
     expect(response).to render_template("edit")
+  end
+
+  it 'will properly redirect with invalid stack' do
+    post :gist, url:  "https://gist.giurprise/9663961"
+    expect(response).to redirect_to (new_stack_path)
+    flash[:alert].should eq('Need to submit with valid gist.')
+    post :gist, url:  "https://gist.github.com/username/gistid"
+    expect(response).to redirect_to (new_stack_path)
+    flash[:alert].should eq('Need to submit with valid gist.')
+  end
+
+
+  it 'can load a stack from a gist' do
+    expect(Stack.find_by(name: "Pokemon")).to eq(nil)
+    post :gist, url:  "https://gist.github.com/FifthSurprise/9663961"
+
+    expect(Stack.find_by(name: "Pokemon").name).to eq("Pokemon")
+
   end
 
 end

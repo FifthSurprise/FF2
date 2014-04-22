@@ -18,4 +18,12 @@ describe 'Application Helper' do
     expect(dummy_class.new.mini_avatar(user)).to eq("https://secure.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452.png?s=50")
   end
 
+  it 'should test markdown method' do
+    pending
+  end
+
+  it 'should test sanizating input' do
+    pending
+  end
+
 end

@@ -14,16 +14,29 @@ describe RecallsController do
   end
 
   it 'routes to the recall show page' do
-    get :show, id: @recall.id
+    get :show, id: @recall
     response.should render_template :show
   end
 
   it 'will reset a recall' do
+    @recall.process_recall_result(4)
+    @recall.process_recall_result(4)
+    @recall.process_recall_result(5)
+    @recall.repetition_interval.should eq(15)
+    @recall.reset
+    post :reset, id: @recall
+    @recall.number_repetitions.should eq(0)
     pending
   end
 
   it 'will get a card to learn if there are any available' do
-    pending
+    get :learn, user: @user, stack: @stack
+    response.should redirect_to (recall_path(@recall))
+    @recall.process_recall_result(4)
+    @recall.process_recall_result(4)
+    @recall.process_recall_result(5)
+    get :learn, user: @user, stack: @stack
+    response.should redirect_to (@user)
   end
 
   it 'will go back to user page if all cards are learned' do
@@ -31,6 +44,10 @@ describe RecallsController do
   end
 
   it 'can process a recall quality' do
-    pending
+    post :processQ, id: @recall, val: 4
+    post :processQ, id: @recall, val: 4
+    post :processQ, id: @recall, val: 5
+    @recall.reload
+    @recall.repetition_interval.should eq(15)
   end
 end

@@ -1,7 +1,7 @@
 class StacksController < ApplicationController
 
   def index
-      @stacks = Stack.all
+    @stacks = Stack.all
   end
 
   def show
@@ -35,11 +35,14 @@ class StacksController < ApplicationController
     if url == "https://gist.github.com/username/gistid"
       redirect_to new_stack_path, alert: 'Need to submit with valid gist.'
     else
-      s = Stack.parseGist(url)
-      redirect_to s, notice: "Successfully saved #{s.name}."
+      begin
+        s = Stack.parseGist(url)
+        redirect_to s, notice: "Successfully saved #{s.name}."
+      rescue
+      redirect_to new_stack_path, alert: 'Need to submit with valid gist.'
+      end
     end
   end
-
 
   private
   #implement strong params stuff

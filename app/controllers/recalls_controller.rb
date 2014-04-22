@@ -10,7 +10,7 @@ class RecallsController < ApplicationController
   #learning a card
   def learn
     @user = User.find(params[:user])
-    stack = params[:stack]
+    stack = Stack.find(params[:stack])
 
     #pick a random card or redirect
     @nextrecall = @user.get_stack_recalls(stack).sample
@@ -21,7 +21,6 @@ class RecallsController < ApplicationController
     else
       #redirect to the card
       redirect_to recall_path(@nextrecall)
-      # redirect_to user_stack_user_card_path(@user,@stack,@usercard)
     end
   end
 
@@ -43,6 +42,7 @@ class RecallsController < ApplicationController
     @stack = @recall.card.stack
     @card = @recall.card
     @recall.process_recall_result(params[:val].to_i)
+    @recall.save
     redirect_to learn_path(@user,@stack),
     :notice => %Q["#{@card.question}" processed with quality of #{@recall.quality_of_last_recall}]
   end
