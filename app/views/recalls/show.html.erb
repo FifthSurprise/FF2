@@ -1,6 +1,6 @@
 <!-- User Card -->
 <h2>Card</h2>
-<div class="center">
+<div class="text-center">
   <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
     <div class="flipper">
       <div class="front">
@@ -18,15 +18,15 @@
     </div>
   </div>
   <div class="cardbottom">
-    <p class="clearfix">Rank how well you know the answer from 0 - 5 with 5 being "I totally know it!"</p>
-          <p>
-          <%= link_to '0 - Blanked Out', processQ_path(@recall,:val=>0),:method => "post",:class =>"button"%>
-          <%= link_to '1', processQ_path(@recall,:val=>1),:method => "post",:class =>"button"%>
-          <%= link_to '2', processQ_path(@recall,:val=>2),:method => "post",:class =>"button"%>
-          <%= link_to '3', processQ_path(@recall,:val=>3),:method => "post",:class =>"button"%>
-          <%= link_to '4', processQ_path(@recall,:val=>4),:method => "post",:class =>"button"%>
-          <%= link_to '5', processQ_path(@recall,:val=>5),:method => "post",:class =>"button"%>
-          </p>
+    <p class="col-md-12 col-md-offset-1">Rank how well you know the answer from 0 - 5 with 5 being "I totally know it!"</p>
+          <div class="col-md-12 col-md-offset-1 btn-group">
+          <%= link_to '0 - Blanked Out', processQ_path(@recall,:val=>0),:method => "post",:class =>"btn btn-default"%>
+          <%= link_to '1', processQ_path(@recall,:val=>1),:method => "post",:class =>"btn btn-default"%>
+          <%= link_to '2', processQ_path(@recall,:val=>2),:method => "post",:class =>"btn btn-default"%>
+          <%= link_to '3', processQ_path(@recall,:val=>3),:method => "post",:class =>"btn btn-default"%>
+          <%= link_to '4', processQ_path(@recall,:val=>4),:method => "post",:class =>"btn btn-default"%>
+          <%= link_to '5 - Perfect Recall', processQ_path(@recall,:val=>5),:method => "post",:class =>"btn btn-default"%>
+        </div>
 </div>
 <div class="footer">
 <%
@@ -53,3 +53,9 @@ data ={
   </tr>
 </table>
 <% end %>
+
+
+<%= link_to 'Reset', reset_path(@recall),:method => "post",:class =>"button"%>
+
+<%= link_to 'Back', stack_path(@stack),:class =>"button" %>
+</div>

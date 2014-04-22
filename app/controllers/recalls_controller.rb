@@ -3,18 +3,16 @@ class RecallsController < ApplicationController
   def show
     @recall = Recall.find(params[:id])
     @user = @recall.user
-    @stack = @recall.card.stack
+    @stack = @recall.stack
     @card = @recall.card
   end
 
   #learning a card
   def learn
     @user = User.find(params[:user])
-    @stack = @user_stack.stack
+    stack = params[:stack]
 
-    # #get all the cards for that stack available to study
-
-    # #pick a random card or redirect
+    #pick a random card or redirect
     @nextrecall = @user.get_stack_recalls(stack).sample
     if @nextrecall.nil?
       respond_to do |format|
@@ -29,13 +27,13 @@ class RecallsController < ApplicationController
 
   #Reset the card
   def reset
-    @recall = Recall.find(params[:recall_id])
+    @recall = Recall.find(params[:id])
     # @user = @usercard.user
     @user = @recall.user
-    @stack = @recall.card.stack
+    @stack = @recall.stack
     @card = @recall.card
     @recall.reset_spaced_repetition_data
-    redirect_to recall_path(@recall), notice => "Reset the card."
+    redirect_to recall_path(@recall), :notice => "Card was reset."
   end
 
   #Process a result
@@ -45,8 +43,8 @@ class RecallsController < ApplicationController
     @stack = @recall.card.stack
     @card = @recall.card
     @recall.process_recall_result(params[:val].to_i)
-    # redirect_to learn_path(@user,@userstack),
-    # :notice => %Q["#{@card.question}" processed with quality of #{@usercard.quality_of_last_recall}]
+    redirect_to learn_path(@user,@stack),
+    :notice => %Q["#{@card.question}" processed with quality of #{@recall.quality_of_last_recall}]
   end
 
 end

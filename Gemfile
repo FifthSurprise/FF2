@@ -57,6 +57,5 @@ end
 gem "bootstrap-sass", "~> 3.1.1"
 gem "devise"
 
-#markdown related gems
+#markdown related gem
 gem 'redcarpet'
-gem 'albino'
