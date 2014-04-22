@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-root :to => redirect('/stacks')
+  root :to => redirect('/stacks')
 
   devise_for :users
-
 
   #User manipulation
   get 'users/:id' => 'users#show', :as => :user
@@ -16,7 +15,7 @@ root :to => redirect('/stacks')
   post '/stacks/:id/add' => 'user_stacks#study_stack', :as => :study_stack
 
   resources :cards
-  
+
   get '/recalls/:id' => 'recalls#show', :as => :recall
   post '/recalls/:id/processQ/:val' => 'recalls#processQ', :as => :processQ
   get '/user/:user/stacks/:stack/learn' => 'recalls#learn', :as => :learn
