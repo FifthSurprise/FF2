@@ -21,6 +21,11 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 
+html body{
+  background-image: image-url('paper.jpeg');
+  background-repeat: repeat;
+  background-size: 100%;
+}
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
