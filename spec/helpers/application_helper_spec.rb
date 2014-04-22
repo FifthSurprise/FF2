@@ -18,12 +18,15 @@ describe 'Application Helper' do
     expect(dummy_class.new.mini_avatar(user)).to eq("https://secure.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452.png?s=50")
   end
 
+  let(:dummy_class) { Class.new { include ApplicationHelper } }
   it 'should test markdown method' do
-    pending
+    expect(dummy_class.new.markdown("This is *bongos*, indeed.")).to eq("<p>This is <em>bongos</em>, indeed.</p>\n")
   end
+  let(:dummy_class) { Class.new { include ApplicationHelper } }
 
-  it 'should test sanizating input' do
-    pending
-  end
+  # it 'should test sanizating input' do
+  #   text = '<a href="http://www.rubyonrails.org">Ruby on Rails</a>'
+  #   expect(dummy_class.new.sanitize(text)).to eq("Ruby on Rails")
+  # end
 
 end
