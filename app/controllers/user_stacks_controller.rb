@@ -10,8 +10,6 @@ class UserStacksController < ApplicationController
         redirect_to current_user, :notice =>"Already studying this stack."
       else
         current_user.study_stack(@stack)
-        #what to do when adding a card?
-        #add the cards
         current_user.save
         redirect_to "/users/#{current_user.id}",
           :notice => "Successfully started studying #{@stack.name}"

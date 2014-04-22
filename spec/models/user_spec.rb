@@ -44,7 +44,6 @@ describe User do
 
         expect(recallstack.cards.count).to eq(1)        
         expect(recallstack.cards.first).to eq (studycard)
-        # binding.pry
         recall = (Recall.where("user_id = #{@user.id}").where("card_id = #{studycard.id}")).first
         expect(recall.easiness_factor).to eq (2.5)
       end

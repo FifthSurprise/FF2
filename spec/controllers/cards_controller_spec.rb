@@ -48,7 +48,7 @@ describe CardsController do
     it 'removes all the recalls associated with the card' do
       @user.study_stack(@stack)
       card = @stack.cards.last
-      recallcount = @user.recalls.count
+      recallcount = Recall.where("card_id = #{card.id} and user_id = #{@user.id}").count
       expect(recallcount).to_not eq(0)
       delete :destroy, id: card
       expect(Recall.where("card_id = #{card.id} and user_id = #{@user.id}").count).to eq(recallcount-1)
@@ -60,7 +60,7 @@ describe CardsController do
       user2.study_stack(@stack)
 
       card = @stack.cards.last
-      recallcount = user2.recalls.count
+      recallcount = Recall.where("card_id = #{card.id} and user_id = #{user2.id}").count
       expect(recallcount).to_not eq(0)
       delete :destroy, id: card
       expect(Recall.where("card_id = #{card.id} and user_id = #{@user.id}").count).to eq(recallcount-1)

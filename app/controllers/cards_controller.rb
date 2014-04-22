@@ -20,6 +20,8 @@ class CardsController < ApplicationController
     question = @card.question
     @stack = @card.stack
     @card.destroy
+    #make sure that associated recalls are destroyed
+    Recall.where("card_id = #{@card.id}").each{|recall| recall.destroy}
     redirect_to stack_path(@stack), notice: "Deleted #{question} from #{@stack.name}."
   end
 

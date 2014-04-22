@@ -1,6 +1,6 @@
 <h1><%= @stack.name %></h1>
-
-<% if !current_user.nil? %>
+<p><%=@stack.description %> </p>  
+<% if !current_user.nil? && !current_user.stacks.include?(@stack)%>
   <p> <%= link_to 'Study this stack', study_stack_path(@stack), method: "post",:class => "btn btn-default" %></p>
   <% end %>
 

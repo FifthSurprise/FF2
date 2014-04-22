@@ -570,6 +570,22 @@
       ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/helpers/application_helper.rb": [
         1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/helpers/card_helper.rb": [
@@ -611,6 +627,8 @@
         3,
         3,
         3,
+        null,
+        6,
         3,
         null,
         null,
@@ -773,8 +791,6 @@
         1,
         null,
         1,
-        null,
-        null,
         1,
         1,
         null,
@@ -809,6 +825,26 @@
         2,
         2,
         1,
+        null,
+        null,
+        null
+      ],
+      "/Users/kevinc/Desktop/Files/Coding/FF2/spec/helpers/application_helper_spec.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
         null,
         null,
         null
@@ -1237,7 +1273,6 @@
         null,
         1,
         1,
-        null,
         1,
         1,
         null,
@@ -1259,6 +1294,6 @@
         null
       ]
     },
-    "timestamp": 1398107610
+    "timestamp": 1398125173
   }
 }
