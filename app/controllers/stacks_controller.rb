@@ -30,6 +30,17 @@ class StacksController < ApplicationController
     @stack = Stack.find(params[:id])
   end
 
+  def gist
+    url = params[:url]
+    if url == "https://gist.github.com/username/gistid"
+      redirect_to new_stack_path, alert: 'Need to submit with valid gist.'
+    else
+      s = Stack.parseGist(url)
+      redirect_to s, notice: "Successfully saved #{s.name}."
+    end
+  end
+
+
   private
   #implement strong params stuff
   def stack_params

@@ -21,4 +21,27 @@ class Stack < ActiveRecord::Base
     #join the Recall table with the stack table through card_id
     # Recall.where("user_id = #{@user.id} and ")
   end
+
+  def self.parseGist(url)
+    combinationid = url.match(%r[(?<=(https:\/\/gist.github.com\/)).*]).to_s
+    user = combinationid.split("/").first
+    id = combinationid.split("/").last
+    request = %Q[https://gist.githubusercontent.com/#{user}/#{id}/raw]
+  
+    raw = Net::HTTP.get_response(URI.parse(request))
+    text = raw.body.split("~~")
+    title = ""
+    while (title.length <= 0)
+      title =text.shift
+    end
+    title = title.strip
+    s = Stack.create(name: title)
+    text.map!{|t| t.split(%r[~Answer:])}
+
+    text.each do |val|
+      s.cards.build(question: val[0].gsub("Question:","").strip , answer: val[1].strip)
+    end
+    s.save
+    s
+  end
 end
