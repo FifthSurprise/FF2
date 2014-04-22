@@ -2,6 +2,9 @@ class CardsController < ApplicationController
 
   def show
     @card = Card.find(params[:id])
+    @stack = @card.stack
+    @studyingstack = !current_user.nil? && !current_user.studying?(@stack)
+    @owned = (@stack.owner == current_user)
   end
 
   def new

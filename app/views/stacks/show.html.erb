@@ -1,6 +1,6 @@
 <h1><%= @stack.name %></h1>
 <p><%=@stack.description %> </p>  
-<% if !current_user.nil? && !current_user.stacks.include?(@stack)%>
+<% if (@studyingstack)%>
   <p> <%= link_to 'Study this stack', study_stack_path(@stack), method: "post",:class => "btn btn-default" %></p>
   <% end %>
 
@@ -12,7 +12,10 @@
   <% end %>
 </ol>
 
+<% if(@owned) %>
+
 <%= link_to 'Add New Card', new_stack_card_path(@stack) , method:"get", :class =>"btn btn-default" %>
 
 <%= link_to 'Edit', edit_stack_path(@stack), :class =>"btn btn-default" %>
+<% end %>
 <%= link_to 'Back', stacks_path, :class =>"btn btn-default" %>

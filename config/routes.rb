@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
+root :to => redirect('/stacks')
+
   devise_for :users
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+
 
   #User manipulation
   get 'users/:id' => 'users#show', :as => :user

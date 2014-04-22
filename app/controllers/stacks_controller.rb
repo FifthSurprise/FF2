@@ -6,6 +6,8 @@ class StacksController < ApplicationController
 
   def show
     @stack = Stack.find(params[:id])
+    @studyingstack = !current_user.nil? && !current_user.studying?(@stack)
+    @owned = (@stack.owner == current_user)
   end
 
   def new

@@ -23,8 +23,8 @@ module ApplicationHelper
     Markdown.new(text, *options).to_html.html_safe
   end
 
-  # def sanitize(text)
-  #   strip_tags(markdown(text))
-  # end
+  def sanitize(text)
+    strip_tags(markdown(text))
+  end
 
 end
