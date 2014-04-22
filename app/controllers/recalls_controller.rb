@@ -27,10 +27,6 @@ class RecallsController < ApplicationController
   #Reset the card
   def reset
     @recall = Recall.find(params[:id])
-    # @user = @usercard.user
-    @user = @recall.user
-    @stack = @recall.stack
-    @card = @recall.card
     @recall.reset_spaced_repetition_data
     redirect_to recall_path(@recall), :notice => "Card was reset."
   end

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :ownedstacks, :class_name => "Stack", foreign_key: "owner_id"
 
   def study_stack(stack)
-    unless (self.stacks.include?(stack))
+    unless self.studying?(stack)
       self.stacks<<stack
       stack.cards.each do|card|
         self.study_card(card)
@@ -29,4 +29,9 @@ class User < ActiveRecord::Base
   def get_stack_recalls(stack)
     self.recalls.all.select{|r|r.card.stack == stack && r.scheduled_to_recall?}
   end
+
+  def studying?(stack)
+    self.stacks.include?(stack)
+  end
+
 end

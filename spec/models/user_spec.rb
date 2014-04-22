@@ -7,7 +7,7 @@ describe User do
       @stack = @user.ownedstacks.create(name: "Gov Stack",
                                         description: "Prepare for your citizenship exam")
       @stack.owner = @user
-      
+
     end
 
     it 'has an email' do
@@ -24,6 +24,7 @@ describe User do
       @user.ownedstacks.first.should eq(@stack)
     end
 
+
     describe 'studying a stack' do
       it 'can have other stacks' do
         ownedstackcount = @user.ownedstacks.count
@@ -36,17 +37,25 @@ describe User do
         @user.ownedstacks.count.should eq(ownedstackcount)
       end
 
+
+      it 'can tell if it is studying a stack' do
+        expect(@user.studying?(@stack)).to eq(false)
+        @user.study_stack(@stack)
+        expect(@user.studying?(@stack)).to eq(true)
+      end
+
       it 'user can have a recall' do
-        recallstack = create(:stack) 
+        recallstack = create(:stack)
         studycard = (create(:card))
         recallstack.cards << studycard
         @user.study_stack(recallstack)
 
-        expect(recallstack.cards.count).to eq(1)        
+        expect(recallstack.cards.count).to eq(1)
         expect(recallstack.cards.first).to eq (studycard)
         recall = (Recall.where("user_id = #{@user.id}").where("card_id = #{studycard.id}")).first
         expect(recall.easiness_factor).to eq (2.5)
       end
+
     end
   end
 end
