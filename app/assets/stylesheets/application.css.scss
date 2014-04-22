@@ -11,8 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self 
- *= require bootstrap
+ *= require_self
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
@@ -90,10 +89,4 @@
     color: #468847;
     text-align: left;
  }
-
-form.form-inline input.max-width-80{
-  max-width: 73%;
-  margin-right: 12px;
-  float: left;
-}
 

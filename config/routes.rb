@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :cards
   
+  get '/recalls/:id' => 'recalls#show', :as => :recall
+  get '/recalls/:id/processQ' => 'recalls#process', :as => :processQ
 
 
   # The priority is based upon order of creation: first created -> highest priority.

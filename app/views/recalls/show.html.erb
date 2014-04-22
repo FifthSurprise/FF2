@@ -1,0 +1,55 @@
+<!-- User Card -->
+<h2>Card</h2>
+<div class="center">
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <div class="front">
+        <h2>Question:</h2>
+        <div class="text-center"> <%= markdown(@card.question) %></div>
+      </div>
+      <div class="back">
+        <h2>Answer:
+        </h2>
+        <div class="text-center">
+        <%= markdown(@card.answer) %>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cardbottom">
+    <p class="clearfix">Rank how well you know the answer from 0 - 5 with 5 being "I totally know it!"</p>
+          <p>
+          <%= link_to '0 - Blanked Out', processQ_path(@recall,:val=>0),:method => "post",:class =>"button"%>
+          <%= link_to '1', processQ_path(@recall,:val=>1),:method => "post",:class =>"button"%>
+          <%= link_to '2', processQ_path(@recall,:val=>2),:method => "post",:class =>"button"%>
+          <%= link_to '3', processQ_path(@recall,:val=>3),:method => "post",:class =>"button"%>
+          <%= link_to '4', processQ_path(@recall,:val=>4),:method => "post",:class =>"button"%>
+          <%= link_to '5', processQ_path(@recall,:val=>5),:method => "post",:class =>"button"%>
+          </p>
+</div>
+<div class="footer">
+<%
+data ={
+:easiness_factor => "Easiness Factor",
+:quality_of_last_recall => "Quality of Last Recall",
+:repetition_interval => "Repetition Interval",
+:number_repetitions => "Number of Repetitions",
+:next_repetition => "Next Repetition",
+:last_studied => "Last Studied"
+}
+%>
+<% if debug=true %>
+<table class="table">
+  <thead>
+    <% data.each_value do |val| %>
+    <td><%= val %></td>
+    <% end %>
+  </thead>
+  <tr>
+    <% data.each_key do |key| %>
+    <td><%= @recall.send(key) %></td>
+    <% end %>
+  </tr>
+</table>
+<% end %>

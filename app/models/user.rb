@@ -25,4 +25,8 @@ class User < ActiveRecord::Base
       self.cards << card
     end
   end
+
+  def get_stack_recalls(stack)
+    self.recalls.all.select{|r|r.card.stack == stack && r.scheduled_to_recall?}
+  end
 end
