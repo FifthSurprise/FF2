@@ -1,18 +1,21 @@
-module ApplicationHelper
+require 'spec_helper'
+require 'application_helper'
+describe 'Application Helper' do
 
-  def avatar_for(user, size = 100)
-    default_url = "#{root_url}images/guest.png"
-    pixels = size
-    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-    default_url = "#{root_url}images/guest.png"
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{pixels}"
+  let(:dummy_class) { Class.new { include ApplicationHelper } }
+  it 'should know what its gravatar url is' do
+    user =  create(:user)
+    user.update(email: "test@test.com")
+    dummy_class.any_instance.stub(:root_url).and_return("http://localhost:3000")
+    expect(dummy_class.new.avatar_for(user)).to eq("http://gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452.png?s=100")
   end
 
-  def mini_avatar(user)
-    pixels = 50
-    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-    default_url = "#{root_url}images/guest.png"
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{pixels}"
+  let(:dummy_class) { Class.new { include ApplicationHelper } }
+  it 'should know what its mini-gravatar url is' do
+    user =  create(:user)
+    user.update(email: "test@test.com")
+    dummy_class.any_instance.stub(:root_url).and_return("http://localhost:3000")
+    expect(dummy_class.new.mini_avatar(user)).to eq("http://gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452.png?s=50")
   end
 
 end
