@@ -15,7 +15,7 @@ class RecallsController < ApplicationController
     stack = Stack.find(params[:stack])
 
     #pick a random card or redirect
-    @nextrecall = @user.get_stack_recalls(stack).sample
+    @nextrecall = @user.get_stack_studyable_recalls(stack).sample
     if @nextrecall.nil?
       respond_to do |format|
         format.html { redirect_to @user,:notice => "Finished Studying Stack"}

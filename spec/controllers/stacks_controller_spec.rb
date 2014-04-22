@@ -59,8 +59,9 @@ describe StacksController do
     expect(Stack.find_by(name: "Pokemon")).to eq(nil)
     post :gist, url:  "https://gist.github.com/FifthSurprise/9663961"
 
-    expect(Stack.find_by(name: "Pokemon").name).to eq("Pokemon")
-
+    resultstack = Stack.find_by(name: "Pokemon")
+    expect(resultstack.name).to eq("Pokemon")
+    expect(resultstack.owner).to eq(@user)
   end
 
 end

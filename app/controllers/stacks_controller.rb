@@ -27,9 +27,15 @@ class StacksController < ApplicationController
       end
     end
   end
-
+  
   def edit
     @stack = Stack.find(params[:id])
+  end
+
+  def update
+    @stack = Stack.find(params[:id])
+    @stack.update(stack_params)
+    redirect_to @stack
   end
 
   def gist
@@ -39,6 +45,8 @@ class StacksController < ApplicationController
     else
       begin
         s = Stack.parseGist(url)
+        s.owner = current_user
+        s.save
         redirect_to s, notice: "Successfully saved #{s.name}."
       rescue
       redirect_to new_stack_path, alert: 'Need to submit with valid gist.'

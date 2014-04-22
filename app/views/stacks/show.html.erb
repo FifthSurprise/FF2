@@ -1,10 +1,19 @@
 <h1><%= @stack.name %></h1>
+<% unless @stack.owner.nil? %>
+<h2>Owned by: <%= @stack.owner.email %>
+<% end %>
 <p><%=@stack.description %> </p>  
 <% if (@studyingstack)%>
   <p> <%= link_to 'Study this stack', study_stack_path(@stack), method: "post",:class => "btn btn-default" %></p>
   <% end %>
 
-<h2>Cards in the stack</h2>
+<h2>Cards in the stack:</h2>
+
+<% if(@owned) %>
+<%= link_to 'Add New Card', new_stack_card_path(@stack) , method:"get", :class =>"btn btn-default" %>
+<%= link_to 'Edit', edit_stack_path(@stack), :class =>"btn btn-default" %>
+<% end %>
+<%= link_to 'Back', stacks_path, :class =>"btn btn-default" %>
 
 <ol>
   <% @stack.cards.each do |card| %>
@@ -12,10 +21,3 @@
   <% end %>
 </ol>
 
-<% if(@owned) %>
-
-<%= link_to 'Add New Card', new_stack_card_path(@stack) , method:"get", :class =>"btn btn-default" %>
-
-<%= link_to 'Edit', edit_stack_path(@stack), :class =>"btn btn-default" %>
-<% end %>
-<%= link_to 'Back', stacks_path, :class =>"btn btn-default" %>

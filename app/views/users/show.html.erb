@@ -1,7 +1,7 @@
 <h2>Stacks currently being studied: </h2>
 <ol>
-  <% @user.stacks.each do |stack| %>
-  <li><%= link_to stack.name, user_stack_path(stack) %></li>
+  <% @user_stacks.each do |ustack| %>
+  <li><h2><%= link_to ustack.stack.name, user_stack_path(ustack) %></h2></li>
   <% end %>
 </ol>
 

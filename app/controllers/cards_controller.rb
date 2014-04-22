@@ -18,6 +18,17 @@ class CardsController < ApplicationController
     redirect_to stack_path(@stack)
   end
 
+  def edit
+    @card = Card.find(params[:id])
+    @stack = @card.stack
+  end
+
+  def update
+    @card= Card.find(params[:id])
+    @card.update(card_params)
+    redirect_to @card
+  end
+
   def destroy
     @card = Card.find(params[:id])
     question = @card.question

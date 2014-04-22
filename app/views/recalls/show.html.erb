@@ -1,6 +1,9 @@
 <!-- User Card -->
-<h2>Card</h2>
-<div class="text-center">
+<div class = "panel panel-default">
+  <div class = "panel-title"><h3><%= @card.stack.name %></h3></div>
+  <div class = "panel-body">
+
+<div class="col-md-12 col-md-offset-1 text-center">
   <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
     <div class="flipper">
       <div class="front">
@@ -17,6 +20,8 @@
       </div>
     </div>
   </div>
+  </div>
+</div>
   <div class="cardbottom">
     <p class="col-md-12 col-md-offset-1">Rank how well you know the answer from 0 - 5 with 5 being "I totally know it!"</p>
           <div class="col-md-12 col-md-offset-1 btn-group">
@@ -57,6 +62,8 @@ data ={
 
 
 <%= link_to 'Reset', reset_path(@recall),:method => "post",:class =>"btn btn-default btn-lg"%>
-
+<% if @stack.owner == current_user %>
+<%=  link_to 'Edit', edit_card_path(@recall.card), :class =>"btn btn-default btn-lg" %>
+<% end %>
 <%= link_to 'Back', user_stack_path(@user_stack),:class =>"btn btn-default btn-lg" %>
 </div>

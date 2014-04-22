@@ -3,7 +3,7 @@
 <%= render 'form' %>
 <br>
 <h2>Or Submit via Gist</h2>
-<%= form_tag(gist_path, method: "get") do %>
+<%= form_tag(gist_path, method: "post") do %>
   <div class ="field">
     <%= text_field_tag "url",nil, placeholder: 'https://gist.github.com/username/gistid', size: "50" %>
   </div>
