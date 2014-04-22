@@ -16,4 +16,13 @@ class UserStacksController < ApplicationController
       end
     end
   end
+
+  #shows details of the stack getting studied
+  def show
+    @user_stack = UserStack.find(params[:id])
+    @stack = @user_stack.stack
+    @user = @user_stack.user
+    @recalls = @user.get_stack_recalls(@stack)
+    @studyrecalls = @user.get_stack_studyable_recalls(@stack)
+  end
 end

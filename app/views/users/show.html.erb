@@ -1,8 +1,7 @@
-<h2>Your Stacks</h2>
-
+<h2>Stacks currently being studied: </h2>
 <ol>
-  <% @user.stacks.each do |userstack| %>
-  <li><%= link_to userstack.name, stack_path(userstack) %></li>
+  <% @user.stacks.each do |stack| %>
+  <li><%= link_to stack.name, user_stack_path(stack) %></li>
   <% end %>
 </ol>
 
@@ -11,5 +10,5 @@
 <% end %>
 
 </br>
-<%= link_to 'Get more stacks', stacks_path, :class =>"button"%>
+<%= link_to 'Get more stacks', stacks_path, :class => "btn btn-default btn-md"%>
 </br>

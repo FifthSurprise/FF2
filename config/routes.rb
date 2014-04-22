@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   resources :cards
 
+  get '/user_stack/:id' => 'user_stacks#show', :as => :user_stack
+
+
   get '/recalls/:id' => 'recalls#show', :as => :recall
   post '/recalls/:id/processQ/:val' => 'recalls#processQ', :as => :processQ
   get '/user/:user/stacks/:stack/learn' => 'recalls#learn', :as => :learn

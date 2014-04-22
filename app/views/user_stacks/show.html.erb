@@ -1,0 +1,20 @@
+<h1><%= @stack.name %></h1>
+<h2>Ready to study?</h2>
+<h3>On today's study list for <%= @stack.name %></h3>
+<%= link_to 'Learn', learn_path(@user,@stack), :class =>"btn btn-default btn-lg" %>
+<ol>
+  <% @studyrecalls.each do |recall| %>
+  <% if recall.scheduled_to_recall? %>
+  <li><%= link_to recall.card.question.split("\n").first, recall_path(recall) %></li>
+  <% end %>
+  <% end %>
+</ol>
+<h3>For future studying</h3>
+<ol>
+  <% @recalls.each do |recall| %>
+  <% unless recall.scheduled_to_recall? %>
+  <li><%= link_to recall.card.question.split("\n").first, recall_path(recall) %></li>
+  <% end %>
+  <% end %>
+</ol>
+<%= link_to 'Back', @user, :class =>"btn btn-default btn-lg"%>
