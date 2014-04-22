@@ -1,6 +1,10 @@
 // Place all the styles related to the Recalls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.flip-container img {
+    max-height:70%;
+    min-height:60%;
+}
 
 .flip-container {
     -webkit-perspective: 1000;
