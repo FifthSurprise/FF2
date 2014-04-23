@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u = User.create!({:email => "kevin.chang@flatironschool.com", :password => "12345678", :password_confirmation => "12345678" })
+u = User.create!({:email => "kevin.w.chang@gmail.com", :password => "12345678", :password_confirmation => "12345678" })
 s = Stack.create(name: "TEST DATA")
 s.cards << Card.create(question: "What is Bogo sort?", 
   answer: "[Shuffle](http://www.youtube.com/watch?v=DaPJkYo2quc) until sorted.")
