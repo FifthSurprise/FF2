@@ -34,6 +34,19 @@ describe CardsController do
     response.should redirect_to "/stacks/#{@stack.id}"
   end
 
+  it 'renders an edit card page' do
+    get :edit, id: @card
+    expect(response).to render_template("edit")
+  end
+
+  it 'can after update, goes to the card' do
+    post :update, id: @card, card:
+      {:question => "New question", 
+        :answer => "New answer", 
+        :stack_id => @stack.id}
+    expect(response).to redirect_to(@card)
+  end
+
   describe 'destroying cards from a stack' do
     before(:each) do
       @stack.cards<< create(:card)

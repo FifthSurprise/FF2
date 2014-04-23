@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe UsersController do
   before(:each)do
-    @user = create(:user)
+        @user = create(:user)
+    @stack = create(:stack)
+    @stack.owner = @user
+    @stack.cards << create(:card)
+    @user.study_stack(@stack)
     sign_in :user, @user
   end
   it 'renders the show page' do

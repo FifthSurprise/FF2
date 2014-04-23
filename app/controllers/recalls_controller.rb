@@ -6,7 +6,6 @@ class RecallsController < ApplicationController
     @stack = @recall.stack
     @card = @recall.card
     @user_stack = UserStack.where(user_id: @user.id, stack_id: @stack.id).first
-
   end
 
   #learning a card

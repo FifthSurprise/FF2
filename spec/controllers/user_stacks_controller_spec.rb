@@ -10,6 +10,13 @@ describe UserStacksController do
       sign_in :user, @user
     end
 
+    it 'can show a user stack' do
+      post :study_stack, id: @stack.id
+      @user_stack = UserStack.where(user_id: @user.id, stack_id: @stack.id).first
+      get :show, id: @user_stack.id
+      expect(response).to render_template("show")
+    end
+
     it 'can add a stack to be studied by a user' do
       post :study_stack, id: @stack.id
       flash[:notice].should eq("Successfully started studying #{@stack.name}")

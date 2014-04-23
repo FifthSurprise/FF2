@@ -24,9 +24,9 @@ describe 'Application Helper' do
   end
   let(:dummy_class) { Class.new { include ApplicationHelper } }
 
-  # it 'should test sanizating input' do
-  #   text = '<a href="http://www.rubyonrails.org">Ruby on Rails</a>'
-  #   expect(dummy_class.new.sanitize(text)).to eq("Ruby on Rails")
-  # end
+  it 'should test sanizating input' do
+    text = '<a href="http://www.rubyonrails.org">Ruby on Rails</a>'
+    expect(helper.sanitize(text)).to eq("Ruby on Rails\n")
+  end
 
 end

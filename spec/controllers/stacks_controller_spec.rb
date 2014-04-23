@@ -45,6 +45,14 @@ describe StacksController do
     expect(response).to render_template("edit")
   end
 
+  it 'can after update, goes to the stack' do
+    newstack = create(:stack)
+    post :update, id: newstack, stack:
+      {description: 'SpecTest', 
+        :name => "New Name"}
+    expect(response).to redirect_to(newstack)
+  end
+
   it 'will properly redirect with invalid stack' do
     post :gist, url:  "https://gist.giurprise/9663961"
     expect(response).to redirect_to (new_stack_path)
