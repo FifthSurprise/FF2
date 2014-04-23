@@ -1,8 +1,8 @@
 <h1>Card - <%= @stack.name %></h1>
 <h2>Question: </h2>
-<h3><%= markdown(@card.question) %></h3>
+<div class="container"><%= markdown(@card.question) %></div>
 <h2>Answer: </h3>
-<%= markdown(@card.answer) %>
+<div class="container"><%= markdown(@card.answer) %></div>
 
 <% if(@owned)%>
 <%=  link_to 'Edit', edit_card_path(@card), :class =>"btn btn-default btn-lg" %>
