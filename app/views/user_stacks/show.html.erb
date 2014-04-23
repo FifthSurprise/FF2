@@ -1,6 +1,8 @@
 <h1><%= @stack.name %></h1>
 <h2>Ready to study?</h2>
 <h3>On today's study list for <%= @stack.name %>:</h3>
+<div class="container"><%= image_tag @chart %></div>
+
 <%= link_to 'Learn', learn_path(@user,@stack), :class =>"btn btn-default btn-lg" %>
 <ol>
   <% @studyrecalls.each do |recall| %>

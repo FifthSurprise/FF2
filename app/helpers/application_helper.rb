@@ -1,4 +1,5 @@
 module ApplicationHelper
+  require 'googlecharts'
   require 'redcarpet/compat'
   include ActionView::Helpers::SanitizeHelper
   

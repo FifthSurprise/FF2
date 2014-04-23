@@ -1,5 +1,5 @@
 class UserStacksController < ApplicationController
-
+  require 'date'
   def study_stack
     #current_user is the user
     if current_user.nil?
@@ -24,5 +24,12 @@ class UserStacksController < ApplicationController
     @user = @user_stack.user
     @recalls = @user.get_stack_recalls(@stack)
     @studyrecalls = @user.get_stack_studyable_recalls(@stack)
+
+    count = @recalls.count{|recall|recall.quality_of_last_recall ==5}
+
+    @chart = Gchart.pie_3d(:title => 'Current Progress', :size => '600x200',
+      :bg => {:color => 'FFFFFF00'},
+              :data => [@recalls.count-count, count], 
+              :labels => ["Still needs Studying","Well Memorized"] )
   end
 end
