@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
 
-  root :to => redirect('/stacks')
 
   devise_for :users
+  authenticated :user do
+    root :to => "users#show", as: :authenticated_root
+  end
+  unauthenticated :user do
+    devise_scope :user do
+      root :to => "stacks#index"
+    end
+  end
 
   #User manipulation
   get 'users/:id' => 'users#show', :as => :user

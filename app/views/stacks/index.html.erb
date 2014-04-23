@@ -10,7 +10,7 @@
   <li>
     <h3><%= link_to stack.name, stack %></h3>
     <% unless stack.owner.nil? %>
-    <h3>Owned by: <%= stack.owner.email %></h3>
+    <h4>Owned by: <%= stack.owner.email %></h4>
     <% end %>
     <h4><%=stack.description %></h4>
   </li>

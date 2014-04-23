@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = current_user if (params[:id].nil?)
+    @user = User.find(params[:id]) if @user.nil?
+    
     unless (current_user == @user)
       redirect_to @current_user
     end

@@ -41,7 +41,7 @@ class RecallsController < ApplicationController
     @recall.process_recall_result(params[:val].to_i)
     @recall.save
     redirect_to learn_path(@user,@stack),
-    :notice => %Q["#{@card.question}" processed with quality of #{@recall.quality_of_last_recall}]
+    :notice => %Q["Processed card with quality of #{@recall.quality_of_last_recall}]
   end
 
 end

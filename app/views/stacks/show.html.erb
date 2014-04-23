@@ -1,6 +1,6 @@
 <h1><%= @stack.name %></h1>
 <% unless @stack.owner.nil? %>
-<h2>Owned by: <%= @stack.owner.email %>
+<h3>Owned by: <%= @stack.owner.email %></h3>
 <% end %>
 <p><%=@stack.description %> </p>  
 <% if (@studyingstack)%>
