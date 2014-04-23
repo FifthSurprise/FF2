@@ -15,6 +15,11 @@ class CardsController < ApplicationController
   def create
     @stack = Stack.find(card_params[:stack_id])
     @card = @stack.cards.create(card_params)
+    @stack.users.each do |user|
+      unless (user.cards.include? @card)
+        user.cards<< @card
+      end
+    end
     redirect_to stack_path(@stack)
   end
 
@@ -25,7 +30,13 @@ class CardsController < ApplicationController
 
   def update
     @card= Card.find(params[:id])
+    @stack = @card.stack
     @card.update(card_params)
+    @stack.users.each do |user|
+      unless (user.cards.include? @card)
+        user.cards<< @card
+      end
+    end
     redirect_to @card
   end
 
