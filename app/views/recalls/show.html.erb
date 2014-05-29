@@ -4,7 +4,7 @@
   <div class = "panel-body">
 
 <div class="col-md-12 col-md-offset-1 text-center">
-  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flip-container" id="flip-toggle" ontouchstart="this.classList.toggle('hover');">
     <div class="flipper">
       <div class="front">
         <h2>Question:</h2>
@@ -21,6 +21,9 @@
     </div>
   </div>
   </div>
+</div>
+<div class="col-md-12 colo-md-offset-1 text-center">
+<button onclick="document.querySelector('#flip-toggle').classList.toggle('hover');" class="flipbutton">Manually Flip Card</button>
 </div>
   <div class="cardbottom">
     <p class="col-md-12 col-md-offset-1">Rank how well you know the answer from 0 - 5 with 5 being "I totally know it!"</p>

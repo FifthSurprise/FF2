@@ -11,3 +11,7 @@
    max-height:60%;
 
 }
+
+.flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
+  transform: rotateY(180deg);
+}
