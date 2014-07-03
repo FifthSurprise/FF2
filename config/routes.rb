@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   unauthenticated :user do
     devise_scope :user do
-      root :to => "stacks#index"
+      root :to => "static#about"
     end
   end
 
