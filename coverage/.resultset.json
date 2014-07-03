@@ -640,6 +640,10 @@
         1,
         null
       ],
+      "/Users/kevinc/Desktop/Files/Coding/FF2/app/helpers/static_helper.rb": [
+        1,
+        null
+      ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/app/helpers/user_stacks_helper.rb": [
         1,
         null
@@ -667,6 +671,11 @@
         1,
         1,
         1,
+        0,
+        0,
+        null,
+        null,
+        1,
         null,
         null,
         1,
@@ -677,6 +686,12 @@
         1,
         1,
         1,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null,
         1,
         null,
         null,
@@ -701,6 +716,9 @@
         null,
         null,
         1,
+        null,
+        1,
+        null,
         null,
         null
       ],
@@ -948,6 +966,21 @@
         null,
         null
       ],
+      "/Users/kevinc/Desktop/Files/Coding/FF2/spec/controllers/static_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/kevinc/Desktop/Files/Coding/FF2/app/controllers/static_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/kevinc/Desktop/Files/Coding/FF2/spec/controllers/user_stacks_controller_spec.rb": [
         1,
         null,
@@ -1153,6 +1186,23 @@
         null,
         null,
         null,
+        1,
+        null
+      ],
+      "/Users/kevinc/Desktop/Files/Coding/FF2/spec/helpers/static_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
         1,
         null
       ],
@@ -1608,6 +1658,6 @@
         null
       ]
     },
-    "timestamp": 1398226310
+    "timestamp": 1404429037
   }
 }

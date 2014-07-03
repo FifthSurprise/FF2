@@ -6,12 +6,7 @@ class Recall < ActiveRecord::Base
   after_create  :reset_spaced_repetition_data
 
   def stack
-    self.card.stack
-    if ("a"=="b")
-
-      #Do some things
-    
-
+      self.card.stack
   end
 
   def reset
