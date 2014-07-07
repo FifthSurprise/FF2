@@ -3,6 +3,23 @@
 <%= render 'form' %>
 <br>
 <h2>Or Submit via Gist</h2>
+<p>The current format is as follows.  You can find a sample 
+  <a href="https://gist.github.com/FifthSurprise/681b8ab50afb908431a2">here</a>.</p>
+<div class="panel">
+<p>~~Stack Title</br>
+~~Question:</br>
+Who gave the Gettysburg Address?  </br>
+ 
+~Answer:</br>
+Abraham Lincoln</br>
+ 
+~~Question:</br>
+Who said "We shall fight on the beaches, we shall fight on the landing grounds, we shall fight in the fields and in the streets, we shall fight in the hills; we shall never surrender"</br>
+
+~Answer:</br>
+Winston Churchill</br>
+</p>
+</div>
 <%= form_tag(gist_path, method: "post") do %>
   <div class ="field">
     <%= text_field_tag "url",nil, placeholder: 'https://gist.github.com/username/gistid', size: "50" %>
